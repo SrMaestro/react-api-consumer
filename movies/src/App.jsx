@@ -9,7 +9,7 @@ function App() {
   return(
     <div className='App'>
       <Navbar/>
-      <h2>Ola Mundo</h2>
+      <h2>MoviesLib</h2>
       <Outlet/>
     </div>
   )
