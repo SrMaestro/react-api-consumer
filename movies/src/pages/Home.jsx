@@ -11,7 +11,7 @@ const Home = () => {
   const getTopRatedMovies = async (url) => {
     const res = await fetch(url)
     const data = await res.json() /*Here we are transforming the response into a json*/
-    console.log(data);
+    setTopMovies(data.results);
     
   }
 
@@ -27,7 +27,9 @@ const Home = () => {
   
 
   return (
-    <div>Home</div>
+    <div>
+     {topMovies && topMovies.map((movie) => <p>{movie.title}</p>)}
+    </div>
   )
 }
 
