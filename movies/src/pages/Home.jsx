@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"; /* importing a hook from the React library */
 import MovieCard from "../components/MovieCard";
+import "./MoviesGrid.css"
 
 
 const moviesURL = import.meta.env.VITE_API;
