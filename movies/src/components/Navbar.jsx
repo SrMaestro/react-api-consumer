@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 import { BiCameraMovie, BiSearchAlt2 } from "react-icons/bi";
+import { CiStar } from "react-icons/ci";
+import { BiBookOpen } from "react-icons/bi";
 import "./NavBar.css";
 
 const Navbar = () => {
@@ -28,6 +30,7 @@ const Navbar = () => {
         <Link to="/"><BiCameraMovie/>MoviesLib</Link>
       </h2>
         <form onSubmit={handleSubmit}>
+         <h2> <Link to="/favorites"><BiBookOpen /></Link></h2>
             <input type="text" placeholder="Busque um filme" onChange={(e) => setSearch(e.target.value)}  
             value={search}
             />
