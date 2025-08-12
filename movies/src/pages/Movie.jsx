@@ -25,20 +25,15 @@ const Movie = () => {
     setMovie(data);
   };
 
-  // const formatCurrency = (number) => {
-  //   return number.toLocaleString("en-US", {
-  //     style: "currency",
-  //     currency: "USD",
-  //   });
-  // };
+
 
   useEffect(() => {
-    const movieUrl = `${moviesURL}${id}?${apiKey}`;
+    const movieUrl = `${moviesURL}${id}?api_key=${apiKey}`;  // Padrão TMDB
     getMovie(movieUrl);
   }, []);
 
   return (
-  <div>Detalhes do filme</div>
+  <div>{movie && <>{movie.title}</>}</div>
   );
 };
 
