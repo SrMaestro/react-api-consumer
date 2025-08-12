@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
-import "./Favorites.css"; // Estilos opcionais
+import "./Favorites.css"; // Arquivo CSS que vamos criar
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
 
-  // Carrega os favoritos do localStorage ao iniciar
   useEffect(() => {
     const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(savedFavorites);
   }, []);
 
-  // Remove um filme dos favoritos
   const handleRemoveFavorite = (movieId) => {
     const updatedFavorites = favorites.filter((movie) => movie.id !== movieId);
     setFavorites(updatedFavorites);
@@ -19,15 +17,15 @@ const Favorites = () => {
   };
 
   return (
-    <div className="favorites-page">
-      <h1>Meus Filmes Favoritos</h1>
+    <div className="container">
+      <h2 className="title">Meus Filmes Favoritos</h2>
       
       {favorites.length === 0 ? (
-        <p>Nenhum filme salvo ainda. 😢</p>
+        <p style={{ color: "#fff", textAlign: "center" }}>Nenhum filme salvo ainda. 😢</p>
       ) : (
-        <div className="favorites-grid">
+        <div className="movies-container">
           {favorites.map((movie) => (
-            <div key={movie.id} className="favorite-movie">
+            <div key={movie.id}>
               <MovieCard movie={movie} showLink={true} />
               <button
                 onClick={() => handleRemoveFavorite(movie.id)}
